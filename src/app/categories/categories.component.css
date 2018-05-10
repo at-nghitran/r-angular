@@ -1,0 +1,14 @@
+.aside-content {
+    width: 30%;
+    float: right;
+}
+h2 {
+    border-bottom: solid 1px #ededed;
+    color: #cfcfcf;
+}
+li a {
+    display: block;
+    padding: 10px;
+    border-bottom: solid 1px #ededed;
+    color: #C9C9C9;
+}
