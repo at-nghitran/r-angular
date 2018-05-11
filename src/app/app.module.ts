@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PostDetailComponent } from './content/post-detail/post-detail.component';
 import { ContentComponent } from './content/content.component'; 
 import { imgCheckDirective } from './directives/imgdr/imgdr';
+import { checkImgPipe } from './pipe/checkImg/checkImg.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { imgCheckDirective } from './directives/imgdr/imgdr';
     FooterComponent,
     PostDetailComponent,
     ContentComponent,
-    imgCheckDirective
+    imgCheckDirective,
+    checkImgPipe
   ],
   imports: [
     BrowserModule
