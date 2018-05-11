@@ -1,6 +1,6 @@
-<div *ngIf="post" [class.show]="isSelected" [class.hidden]="isSelected === false">
-    <h2>{{ post.name }}</h2>
-    <img src="{{ post.img }}" alt="" width="100%"/>
-    <p>{{ post.desc }}</p>
-    <button (click)="onClick(false)"> << Back</button>
-</div>
+<article *ngIf="post" [class.show]="isSelected" [class.hidden]="isSelected === false">
+  <h2>{{ post.name | uppercase}}</h2>
+  <img src="{{ post.img }}" alt="post detail images" />
+  <p>{{ post.desc }}</p>
+  <button (click)="onClick(false)"><< Back</button>
+</article>

@@ -1,22 +1,42 @@
-li {
-    margin-bottom: 10px; 
-    border-bottom: solid 1px #ededed;
-    position: relative;
-    min-height: 200px;
-}
-li img {
-    position: absolute;
+ul {
+  display: flex;
+  flex-direction: column;
 }
 
-li .post-info {
-    padding-bottom: 15px;
-    position: absolute;
-    left: 35%;
-    width: 65%;
+li {
+  margin-bottom: 10px; 
+  padding: 15px 0px;
+  border-bottom: solid 1px #ededed;
+  display: flex;
 }
+
+.post-info {
+  margin-left: 20px;
+}
+
+img {
+  max-width: 30%;
+  margin: 0 auto;
+}
+
 h2 {
-    border-bottom: solid 1px #ededed;
+  border-bottom: solid 1px #ededed;
 }
+
 button:hover {
-    background: bisque;
+  background: bisque;
+}
+
+@media only screen and (max-width:768px) {
+  .post-info p {
+    text-align: justify;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  li {
+    flex-wrap: wrap;
+  }
 }

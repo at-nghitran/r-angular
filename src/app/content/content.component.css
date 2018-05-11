@@ -1,5 +1,11 @@
 .content {
-    width: 67%;
-    float: left;
-    margin-right: 3%;
+  width: 67%;
+  float: left;
+  margin-right: 3%;
+}
+
+@media only screen and (max-width:768px) {
+  .content {
+    width: 100%;
+  }
 }

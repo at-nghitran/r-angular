@@ -1,19 +1,13 @@
-<div class="content">
-    <div class="list-post" [class.hidden]="isSelected" [class.show]="isSelected === false">
-        <h2>Post List</h2>
-        <ul class="posts">
-            <li *ngFor="let post of posts"
-                [class.selected]="post === selectedPost"
-                >
-                <img src="{{ post.img }}" alt="" width="30%">
-                <div class="post-info">
-                    <!-- <span>Id: {{post.id}}</span> <br> -->
-                    <h4>{{post.name | uppercase }}</h4>
-                    <p>{{post.desc}}</p>
-                    <button (click)="onSelect(post)">Detail >></button>
-                    <div class="clearfix"></div>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
+<section class="list-post" [class.hidden]="isSelected" [class.show]="isSelected === false">
+  <h2>Post List</h2>
+  <ul class="posts">
+    <li *ngFor="let post of posts" [class.selected]="post === selectedPost">
+      <img src="{{ post.img }}" alt="post Images">
+      <div class="post-info">
+        <h4>{{post.name | uppercase }}</h4>
+        <p>{{post.desc}}</p>
+        <button (click)="onSelect(post)">Detail >></button>
+      </div>
+    </li>
+  </ul>
+</section>

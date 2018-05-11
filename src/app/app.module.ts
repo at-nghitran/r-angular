@@ -25,4 +25,5 @@ import { ContentComponent } from './content/content.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

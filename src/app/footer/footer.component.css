@@ -1,11 +1,13 @@
 .clearfix {
-    clear: both;
+  clear: both;
 }
+
 .footer {
-    background: #dadada;
-    height: 50px;
-    padding: 10px;
+  background: #dadada;
+  height: 50px;
+  padding: 10px;
 }
+
 p {
-    color: #666;
+  color: #666;
 }
