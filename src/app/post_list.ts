@@ -10,7 +10,7 @@ export const POST: Post[] = [
   {
     id: 2,
     name: 'Lorem ipsum 2',
-    img: '../assets/img/images1.jpeg',
+    img: '',
     desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo quasi tempore eum fuga ad! Optio sed officia saepe accusamus iure.'
   }
 ]

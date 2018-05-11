@@ -1,15 +1,18 @@
-import { Directive,  ElementRef, Input } from '@angular/core';
+import { Directive,  ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[imgCheck]'
 })
 
-export class imgCheckDirective {
+export class imgCheckDirective{
   
   constructor(private el: ElementRef) { }
 
-  private setUrl(imgUrl: string) {
-    // this.el.nativeElement.attribute.url = imgUrl;
-    console.log(this.el.nativeElement);
+  @Input() imgCheck: string;
+
+  ngAfterViewInit() {
+    if(!this.imgCheck) {
+      this.el.nativeElement.src = "../../assets/img/Images2.jpeg";
+    }
   }
 }
