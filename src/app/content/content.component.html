@@ -1,0 +1,4 @@
+<main class="content">
+  <post-list [posts]="posts" [isSelected]="isSelected" (onGetData)="onGetData($event)" (onSelectElm)="onSelectElm($event)"></post-list>
+  <post-detail [post]="selectedPost" [isSelected]="isSelected" (onShow)="onShow($event)"></post-detail>
+</main>
