@@ -7,7 +7,8 @@ import { PostsComponent } from './content/posts/posts.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { FooterComponent } from './footer/footer.component';
 import { PostDetailComponent } from './content/post-detail/post-detail.component';
-import { ContentComponent } from './content/content.component';
+import { ContentComponent } from './content/content.component'; 
+import { imgCheckDirective } from './directives/imgdr/imgdr';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ContentComponent } from './content/content.component';
     CategoriesComponent,
     FooterComponent,
     PostDetailComponent,
-    ContentComponent
+    ContentComponent,
+    imgCheckDirective
   ],
   imports: [
     BrowserModule
