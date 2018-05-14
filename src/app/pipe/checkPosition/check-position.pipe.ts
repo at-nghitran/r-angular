@@ -16,5 +16,4 @@ export class CheckPositionPipe implements PipeTransform {
       default : return 'gold'
     }
   }
-
 }

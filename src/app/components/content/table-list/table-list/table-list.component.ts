@@ -22,5 +22,4 @@ export class TableListComponent implements OnInit {
     this.onGetData.emit(data);
     this.onSelectElm.emit(true);
   }
-
 }

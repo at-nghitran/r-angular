@@ -6,6 +6,7 @@ import { Employee } from '../../../employee';
   templateUrl: './employee-detail.component.html',
   styleUrls: ['./employee-detail.component.css']
 })
+
 export class EmployeeDetailComponent implements OnInit {
 
   @Input() employee: Employee;
@@ -21,5 +22,4 @@ export class EmployeeDetailComponent implements OnInit {
   onClick() {
     this.onShow.emit(false);
   }
-
 }

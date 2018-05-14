@@ -11,6 +11,7 @@ export class PostDetailComponent {
   @Input() post: Post;
   @Input() isSelected: boolean;
   @Output() onShow = new EventEmitter<boolean>();
+  
   onClick() {
     this.onShow.emit(false);
   }

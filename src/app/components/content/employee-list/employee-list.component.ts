@@ -5,6 +5,7 @@ import { Component, OnInit, Input, Output, EventEmitter, AfterContentInit } from
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
+
 export class EmployeeListComponent implements OnInit {
 
   @Input() employees;
@@ -22,5 +23,4 @@ export class EmployeeListComponent implements OnInit {
     this.onGetData.emit(data);
     this.onSelectElm.emit(true);
   }
-
 }

@@ -15,5 +15,4 @@ export class ChecPhoneDirective {
       this.el.nativeElement.className = 'text-center noPhone';
     }
   }
-
 }

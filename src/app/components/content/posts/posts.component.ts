@@ -8,6 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class PostsComponent {
+  
   @Input() posts;
   @Input() isSelected;
   @Output() onGetData = new EventEmitter<object>();
