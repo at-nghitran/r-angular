@@ -14,11 +14,19 @@ export class ContentComponent {
   // posts = POST;
   employees = EMPLOYEE;
   selectedEmployee = {};
-  isSelected = false;
+  isSelected: boolean;
+  employeeSamePosition: any[];
+
+  constructor () {
+    this.employeeSamePosition = [];
+    this.isSelected = false;
+  }
 
   onSelect(employee) {
     this.selectedEmployee = employee;
     this.isSelected = true;
+    console.log(this.selectedEmployee);
+    
   }
 
   onShow(event) {
@@ -27,9 +35,17 @@ export class ContentComponent {
 
   onGetData(data) {
     this.selectedEmployee = data;
+    this.getListSamePosition (data);
   }
   
   onSelectElm(event) {
     this.isSelected = event;
+  }
+
+  getListSamePosition (data) {
+    let array = this.employees.filter(el=> el.position === data.position);
+    let index = array.findIndex(el => el === data);
+    array.splice(index, 1);
+    this.employeeSamePosition = array;
   }
 }

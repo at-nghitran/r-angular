@@ -1,7 +1,50 @@
-<article *ngIf="employee" [class.show]="isSelected" [class.hidden]="isSelected === false">
-    <h2>{{ employee.name | uppercase}}</h2>
-    <img src="{{ employee.avaltar}}" alt="{{ employee.name }}"/>
-    <p>{{ employee.Phone }}</p>
-    <button (click)="onClick(false)"><< Back</button>
+<div class="employee-wrapper mb-15" *ngIf="employee" [class.show]="isSelected" [class.hidden]="isSelected === false">
+  <h1>Employee Detail</h1>
+  <article class="employee-detail">
+    <div class="employee-avatar">
+      <img src="{{ employee.avatar}}" alt="{{ employee.name }}" [imgCheck]="employee.avatar"/>
+    </div>
+    <div class="employee-centent">
+      <h2>{{ employee.name | uppercase}}</h2>
+      <p>Employee Position : {{ employee.position }}</p>
+      <p>Employee Type : {{ employee.employeeType }}</p>
+      <p>Email : {{ employee.employeeEmail }}</p>
+      <p>Phone : {{ employee.phone }}</p>
+    </div>
   </article>
+  <ng-container *ngIf="employeeSamePosition.length > 0; else elseTemplate">
+    <h1>List Employee same position</h1>
+    <table class="table mb-15">
+      <thead>
+        <tr [style.background-color]="'#dadada'">
+          <th>Name</th>
+          <th>Employee Position</th>
+          <th>Employee Type</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeSamePosition">
+          <td class="emp-title">
+            <img src="{{ employee.avatar}}" alt="{{ employee.name }}" [imgCheck]="employee.avatar">
+            <div class="emp-title-name">
+              <h4>{{ employee.name }}</h4>
+              <p>Emp Code: {{ employee.employeeCode }}</p>
+            </div>
+          </td>
+          <td class="text-center" [style.color]="employee.position | checkPosition">{{ employee.position }}</td>
+          <td class="text-center" [style.color]="employee.employeeType | checkEmployeeType">{{ employee.employeeType }}</td>
+          <td class="text-center">{{ employee.employeeEmail }}</td>
+          <td class="text-center">{{ employee.phone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <p>No Employee same position</p>
+  </ng-template>
   
+  
+  <button (click)="onClick(false)"><< Back</button>
+</div>

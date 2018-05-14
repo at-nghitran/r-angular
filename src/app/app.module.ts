@@ -8,7 +8,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { PostDetailComponent } from './components/content/post-detail/post-detail.component';
 import { ContentComponent } from './components/content/content.component'; 
-import { imgCheckDirective } from './directives/imgdr/imgdr';
+import { imgCheckDirective } from './directives/imgdr/imgCheck';
 import { checkImgPipe } from './pipe/checkImg/checkImg.pipe';
 import { EmployeeListComponent } from './components/content/employee-list/employee-list.component';
 import { EmployeeDetailComponent } from './components/content/employee-detail/employee-detail.component';

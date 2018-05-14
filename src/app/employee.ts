@@ -1,10 +1,10 @@
 export class Employee {
   id: string;
   name: string;
-  EmployeeCode: string;
-  Avatar: string;
-  Position: string;
-  EmployeeType: string;
-  EmployeeEmail: string;
-  Phone: string;
+  employeeCode: string;
+  avatar: string;
+  position: string;
+  employeeType: string;
+  employeeEmail: string;
+  phone: string;
 }

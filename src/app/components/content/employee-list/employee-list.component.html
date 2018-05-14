@@ -3,28 +3,27 @@
   <table class="table">
     <thead>
       <tr [style.background-color]="'#dadada'">
-        <th>Ten</th>
-        <!-- <th>Ma NV</th> -->
-        <th>Vi tri</th>
-        <th>Chuc vu</th>
+        <th>Name</th>
+        <th>Employee Position</th>
+        <th>Employee Type</th>
         <th>Email</th>
-        <th>Dien Thoai</th>
+        <th>Phone</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let employee of employees" (click)="onSelect(employee)" class="poiter">
         <td class="emp-title">
-          <img src="{{ employee.Avatar}}" alt="{{ employee.name }}">
+          <img src="{{ employee.avatar}}" alt="{{ employee.name }}" [imgCheck]="employee.avatar">
           <div class="emp-title-name">
             <h4>{{ employee.name }}</h4>
-            <p>Emp Code: {{ employee.EmployeeCode }}</p>
+            <p>Emp Code: {{ employee.employeeCode }}</p>
           </div>
         </td>
         <!-- <td class="text-center">{{ employee.EmployeeCode }}</td> -->
-        <td class="text-center" [style.color]="employee.Position | checkPosition">{{ employee.Position }}</td>
-        <td class="text-center" [style.color]="employee.EmployeeType | checkEmployeeType">{{ employee.EmployeeType }}</td>
-        <td class="text-center">{{ employee.EmployeeEmail }}</td>
-        <td class="text-center">{{ employee.Phone }}</td>
+        <td class="text-center" [style.color]="employee.position | checkPosition">{{ employee.position }}</td>
+        <td class="text-center" [style.color]="employee.employeeType | checkEmployeeType">{{ employee.employeeType }}</td>
+        <td class="text-center">{{ employee.employeeEmail }}</td>
+        <td class="text-center">{{ employee.phone }}</td>
       </tr>
     </tbody>
   </table>

@@ -10,16 +10,11 @@ export class imgCheckDirective{
 
   @Input('imgCheck') imgCheckUrl: string;
 
-  // ngAfterViewInit() {
-  //   if(!this.imgCheckUrl) {
-  //     this.el.nativeElement.src = "../../assets/img/Images2.jpeg";
-  //   }
-  // }
-
   ngAfterViewInit() {
-    // console.log(this.imgCheckUrl);
+    console.log(this.imgCheckUrl);
+    
     if(!this.imgCheckUrl) {
-      this.el.nativeElement.src = "../../assets/img/Images2.jpeg";
+      this.el.nativeElement.src = "../../assets/img/avatar.png";
     }
   }
 }

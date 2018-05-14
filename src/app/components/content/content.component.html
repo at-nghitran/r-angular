@@ -3,5 +3,5 @@
   <post-detail [post]="selectedPost" [isSelected]="isSelected" (onShow)="onShow($event)"></post-detail> -->
  
   <employee-list [employees]="employees" [isSelected]="isSelected" (onGetData)="onGetData($event)" (onSelectElm)="onSelectElm($event)"></employee-list>
-  <employee-detail [employee]="selectedEmployee" [isSelected]="isSelected" (onShow)="onShow($event)"></employee-detail>
+  <employee-detail [employee]="selectedEmployee" [employeeSamePosition]="employeeSamePosition" [isSelected]="isSelected" (onShow)="onShow($event)"></employee-detail>
 </main>
