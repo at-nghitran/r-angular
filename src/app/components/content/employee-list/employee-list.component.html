@@ -1,0 +1,28 @@
+<section class="list-employees" [class.hidden]="isSelected" [class.show]="isSelected === false">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Ten</th>
+        <th>Ma NV</th>
+        <th>Avatar</th>
+        <th>Vi tri</th>
+        <th>Chuc vu</th>
+        <th>Email</th>
+        <th>Dien Thoai</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees" (click)="onSelect(employee)">
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.EmployeeCode }}</td>
+        <td>
+          <img src="{{ employee.Avatar}}" alt="{{ employee.name }}">
+        </td>
+        <td>{{ employee.Position }}</td>
+        <td>{{ employee.EmployeeType }}</td>
+        <td>{{ employee.EmployeeEmail }}</td>
+        <td>{{ employee.Phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
