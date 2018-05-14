@@ -50,7 +50,7 @@ button {
 .table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #f5f5f5;
+  background-color: #E0E0D6;
   border-radius: 6px;
 }
 
@@ -94,6 +94,6 @@ td img {
 }
 
 .noPhone {
-  color : #cfcfcf;
+  color : #999;
   font-style: italic;
 }

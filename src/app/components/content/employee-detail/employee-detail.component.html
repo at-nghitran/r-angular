@@ -13,8 +13,7 @@
         <p>Phone : {{ employee.phone }}</p>
       </ng-container>
       <ng-template #elsePhone>
-        <label>Phone : </label>
-        <label class="noPhone">Empty</label>
+        <label>Phone : </label> <span class="noPhone"> Empty</span>
       </ng-template>
     </div>
   </article>
@@ -43,7 +42,7 @@
           <td class="text-center" [style.color]="employee.position | checkPosition">{{ employee.position }}</td>
           <td class="text-center" [style.color]="employee.employeeType | checkEmployeeType">{{ employee.employeeType }}</td>
           <td class="text-center">{{ employee.employeeEmail }}</td>
-          <td class="text-center" [checPhone]="employee.phone">{{ employee.phone }}</td>
+          <td class="text-center" [checkPhone]="employee.phone">{{ employee.phone }}</td>
         </tr>
       </tbody>
     </table>
