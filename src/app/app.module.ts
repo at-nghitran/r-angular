@@ -8,12 +8,13 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { PostDetailComponent } from './components/content/post-detail/post-detail.component';
 import { ContentComponent } from './components/content/content.component'; 
-import { imgCheckDirective } from './directives/imgdr/imgCheck';
+import { imgCheckDirective } from './directives/imgCheck/imgCheck';
 import { checkImgPipe } from './pipe/checkImg/checkImg.pipe';
 import { EmployeeListComponent } from './components/content/employee-list/employee-list.component';
 import { EmployeeDetailComponent } from './components/content/employee-detail/employee-detail.component';
 import { CheckPositionPipe } from './pipe/checkPosition/check-position.pipe';
 import { CheckEmployeeTypePipe } from './pipe/checkType/check-employee-type.pipe';
+import { ChecPhoneDirective } from './directives/checkPhone/chec-phone.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CheckEmployeeTypePipe } from './pipe/checkType/check-employee-type.pipe
     EmployeeListComponent,
     EmployeeDetailComponent,
     CheckPositionPipe,
-    CheckEmployeeTypePipe
+    CheckEmployeeTypePipe,
+    ChecPhoneDirective
   ],
   imports: [
     BrowserModule

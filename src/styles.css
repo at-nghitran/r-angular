@@ -57,6 +57,7 @@ button {
 table, th, td {
   border: solid 1px #ededed;
   padding: 5px;
+  vertical-align: middle;
 }
 
 tr:hover {
