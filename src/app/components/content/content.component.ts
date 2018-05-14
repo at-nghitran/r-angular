@@ -16,8 +16,8 @@ export class ContentComponent {
   selectedEmployee = {};
   isSelected = false;
 
-  onSelect(post) {
-    this.selectedEmployee = post;
+  onSelect(employee) {
+    this.selectedEmployee = employee;
     this.isSelected = true;
   }
 

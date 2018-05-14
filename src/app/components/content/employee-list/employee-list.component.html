@@ -1,10 +1,10 @@
 <section class="list-employees" [class.hidden]="isSelected" [class.show]="isSelected === false">
+  <h1>Employee List</h1>
   <table class="table">
     <thead>
-      <tr>
+      <tr [style.background-color]="'#dadada'">
         <th>Ten</th>
-        <th>Ma NV</th>
-        <th>Avatar</th>
+        <!-- <th>Ma NV</th> -->
         <th>Vi tri</th>
         <th>Chuc vu</th>
         <th>Email</th>
@@ -12,16 +12,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let employee of employees" (click)="onSelect(employee)">
-        <td>{{ employee.name }}</td>
-        <td>{{ employee.EmployeeCode }}</td>
-        <td>
+      <tr *ngFor="let employee of employees" (click)="onSelect(employee)" class="poiter">
+        <td class="emp-title">
           <img src="{{ employee.Avatar}}" alt="{{ employee.name }}">
+          <div class="emp-title-name">
+            <h4>{{ employee.name }}</h4>
+            <p>Emp Code: {{ employee.EmployeeCode }}</p>
+          </div>
         </td>
-        <td>{{ employee.Position }}</td>
-        <td>{{ employee.EmployeeType }}</td>
-        <td>{{ employee.EmployeeEmail }}</td>
-        <td>{{ employee.Phone }}</td>
+        <!-- <td class="text-center">{{ employee.EmployeeCode }}</td> -->
+        <td class="text-center" [style.color]="employee.Position | checkPosition">{{ employee.Position }}</td>
+        <td class="text-center" [style.color]="employee.EmployeeType | checkEmployeeType">{{ employee.EmployeeType }}</td>
+        <td class="text-center">{{ employee.EmployeeEmail }}</td>
+        <td class="text-center">{{ employee.Phone }}</td>
       </tr>
     </tbody>
   </table>
