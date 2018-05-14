@@ -92,3 +92,8 @@ td img {
   margin-top: 0px;
   margin-bottom: 0.3rem
 }
+
+.noPhone {
+  color : #cfcfcf;
+  font-style: italic;
+}

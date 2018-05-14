@@ -19,9 +19,7 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
   onClick() {
-    
     this.onShow.emit(false);
-    console.log(this.isSelected);
   }
 
 }

@@ -2,16 +2,23 @@
   <h1>Employee Detail</h1>
   <article class="employee-detail">
     <div class="employee-avatar">
-      <img src="{{ employee.avatar}}" alt="{{ employee.name }}" [imgCheck]="employee.avatar"/>
+      <img src="{{ employee.avatar}}" alt="{{ employee.name }}" [imgCheck]="employee.avatar" />
     </div>
     <div class="employee-centent">
       <h2>{{ employee.name | uppercase}}</h2>
       <p>Employee Position : {{ employee.position }}</p>
       <p>Employee Type : {{ employee.employeeType }}</p>
       <p>Email : {{ employee.employeeEmail }}</p>
-      <p>Phone : {{ employee.phone }}</p>
+      <ng-container *ngIf="employee.phone; else elsePhone">
+        <p>Phone : {{ employee.phone }}</p>
+      </ng-container>
+      <ng-template #elsePhone>
+        <label>Phone : </label>
+        <label class="noPhone">Empty</label>
+      </ng-template>
     </div>
   </article>
+  
   <ng-container *ngIf="employeeSamePosition.length > 0; else elseTemplate">
     <h1>List Employee same position</h1>
     <table class="table mb-15">
@@ -36,7 +43,7 @@
           <td class="text-center" [style.color]="employee.position | checkPosition">{{ employee.position }}</td>
           <td class="text-center" [style.color]="employee.employeeType | checkEmployeeType">{{ employee.employeeType }}</td>
           <td class="text-center">{{ employee.employeeEmail }}</td>
-          <td class="text-center">{{ employee.phone }}</td>
+          <td class="text-center" [checPhone]="employee.phone">{{ employee.phone }}</td>
         </tr>
       </tbody>
     </table>
@@ -44,7 +51,7 @@
   <ng-template #elseTemplate>
     <p>No Employee same position</p>
   </ng-template>
-  
-  
-  <button (click)="onClick(false)"><< Back</button>
+
+  <button (click)="onClick(false)">
+    << Back</button>
 </div>

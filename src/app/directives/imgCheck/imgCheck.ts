@@ -11,8 +11,6 @@ export class imgCheckDirective{
   @Input('imgCheck') imgCheckUrl: string;
 
   ngAfterViewInit() {
-    console.log(this.imgCheckUrl);
-    
     if(!this.imgCheckUrl) {
       this.el.nativeElement.src = "../../assets/img/avatar.png";
     }

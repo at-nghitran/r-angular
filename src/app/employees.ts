@@ -19,7 +19,7 @@ export const EMPLOYEE: Employee[] = [
     position: 'SSE',
     employeeType: 'Employee',
     employeeEmail: 'vi.nguyen@asiantech.vn',
-    phone: '0988776656'
+    phone: ''
   },
   {
     id: '3',
@@ -39,7 +39,7 @@ export const EMPLOYEE: Employee[] = [
     position: 'Empty',
     employeeType: 'Intern',
     employeeEmail: 'trieu.huynh@asiantech.vn',
-    phone: '0988776658'
+    phone: ''
   },
   {
     id: '5',
@@ -85,7 +85,7 @@ export const EMPLOYEE: Employee[] = [
     id: '9',
     name: 'Trang Nguyen T.',
     employeeCode: 'AT0411',
-    avatar: 'http://172.16.110.158/public/uploads/images/image/file/27/b0c8446a1e1519816533.png',
+    avatar: '',
     position: 'ASE',
     employeeType: 'Employee',
     employeeEmail: 'trang.nguyen@asiantech.vn',
@@ -109,7 +109,7 @@ export const EMPLOYEE: Employee[] = [
     position: 'ASE',
     employeeType: 'Employee',
     employeeEmail: 'cuong.tran.asiantech@gmail.com',
-    phone: '0988776614'
+    phone: ''
   },
   {
     id: '12',
