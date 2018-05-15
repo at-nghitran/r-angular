@@ -19,8 +19,8 @@
       </td>
       <td class="text-center" [style.color]="employee.position | checkPosition">{{ employee.position }}</td>
       <td class="text-center" [style.color]="employee.employeeType | checkEmployeeType">{{ employee.employeeType }}</td>
-      <td class="text-center">{{ employee.employeeEmail }}</td>
-      <td class="text-center" [appCheckPhone]="employee.phone">{{ employee.phone }}</td>
+      <td class="text-left">{{ employee.employeeEmail }}</td>
+      <td class="text-right" [appCheckPhone]="employee.phone">{{ employee.phone }}</td>
     </tr>
   </tbody>
 </table>

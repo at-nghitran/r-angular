@@ -191,4 +191,4 @@ export const EMPLOYEE: Employee[] = [
     employeeEmail: 'phuc.le@asiantech.vn',
     phone: '0988776620'
   }
-]
+];
