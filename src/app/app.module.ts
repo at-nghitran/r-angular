@@ -8,9 +8,9 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    ...Component,
-    ...Directives,
-    ...Pipes,
+    [...Component],
+    [...Directives],
+    [...Pipes],
     AppComponent,
   ],
   imports: [
