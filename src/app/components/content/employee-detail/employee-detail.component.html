@@ -9,12 +9,13 @@
       <p>Employee Position : {{ employee.position }}</p>
       <p>Employee Type : {{ employee.employeeType }}</p>
       <p>Email : {{ employee.employeeEmail }}</p>
-      <ng-container *ngIf="employee.phone; else elsePhone">
+      <label>Phone : </label> <span [checkPhone]="employee.phone"></span>
+      <!-- <ng-container *ngIf="employee.phone; else elsePhone">
         <p>Phone : {{ employee.phone }}</p>
       </ng-container>
       <ng-template #elsePhone>
         <label>Phone : </label> <span class="noPhone"> Empty</span>
-      </ng-template>
+      </ng-template> -->
     </div>
   </article>
   

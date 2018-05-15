@@ -13,6 +13,8 @@ export class ChecPhoneDirective {
     if (!this.phoneNumber) {
       this.el.nativeElement.innerHTML = 'Empty';
       this.el.nativeElement.className = 'text-center noPhone';
+    }else {
+      this.el.nativeElement.innerHTML = this.phoneNumber;
     }
   }
 }
