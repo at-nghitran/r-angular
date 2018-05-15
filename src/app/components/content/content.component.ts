@@ -22,7 +22,6 @@ export class ContentComponent {
   onSelect(employee) {
     this.selectedEmployee = employee;
     this.isSelected = true;
-    console.log(this.selectedEmployee);
   }
 
   onShow(event) {

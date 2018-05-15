@@ -2,7 +2,7 @@
   <h1>Employee Detail</h1>
   <article class="employee-detail">
     <div class="employee-avatar">
-      <img src="{{ employee.avatar}}" alt="{{ employee.name }}" [imgCheck]="employee.avatar" />
+      <img src="{{ employee.avatar }}" alt="{{ employee.name }}" [imgCheck]="employee.avatar" />
     </div>
     <div class="employee-centent">
       <h2>{{ employee.name | uppercase}}</h2>
@@ -13,34 +13,9 @@
     </div>
   </article>
   
-  <ng-container *ngIf="(employees | getlistsameposition : employee.position).length > 0; else elseTemplate">
+  <ng-container *ngIf="(employees | getlistsameposition : employee).length > 0; else elseTemplate">
     <h1>List Employee same position</h1>
-    <table class="table mb-15">
-      <thead>
-        <tr [style.background-color]="'#dadada'">
-          <th>Name</th>
-          <th>Employee Position</th>
-          <th>Employee Type</th>
-          <th>Email</th>
-          <th>Phone</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let employee of employees | getlistsameposition : employee.position">
-          <td class="emp-title">
-            <img src="{{ employee.avatar}}" alt="{{ employee.name }}" [imgCheck]="employee.avatar">
-            <div class="emp-title-name">
-              <h4>{{ employee.name }}</h4>
-              <p>Emp Code: {{ employee.employeeCode }}</p>
-            </div>
-          </td>
-          <td class="text-center" [style.color]="employee.position | checkPosition">{{ employee.position }}</td>
-          <td class="text-center" [style.color]="employee.employeeType | checkEmployeeType">{{ employee.employeeType }}</td>
-          <td class="text-center">{{ employee.employeeEmail }}</td>
-          <td class="text-center" [checkPhone]="employee.phone">{{ employee.phone }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <table-list [employees]="employees | getlistsameposition : employee" (onGetData)="onSelect($event)"></table-list>
   </ng-container>
   <ng-template #elseTemplate>
     <p>No Employee same position</p>

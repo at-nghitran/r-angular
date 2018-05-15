@@ -11,11 +11,10 @@ export class TableListComponent implements OnInit {
 
   @Input() employees
   @Input() isSelected;
-  @Output() onGetData = new EventEmitter<object>();
+  @Output('onGetData') onGetData = new EventEmitter<object>();
   @Output() onSelectElm = new EventEmitter<boolean>();
 
   ngOnInit() {
-    console.log('table', this.employees);
   }
 
   onSelect(data) {

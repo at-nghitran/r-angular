@@ -9,9 +9,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let employee of employees" (click)="onSelect(employee)" class="poiter">
+    <tr *ngFor="let employee of employees" (click)="onSelect(employee)" class="pointer">
       <td class="emp-title">
-        <img src="{{ employee.avatar}}" alt="{{ employee.name }}" [imgCheck]="employee.avatar">
+        <img src="{{ employee.avatar }}" alt="{{ employee.name }}" [imgCheck]="employee.avatar">
         <div class="emp-title-name">
           <h4>{{ employee.name }}</h4>
           <p>Emp Code: {{ employee.employeeCode }}</p>

@@ -25,4 +25,8 @@ export class EmployeeDetailComponent implements OnInit, OnDestroy {
   onClick() {
     this.onShow.emit(false);
   }
+
+  onSelect(data) {
+    this.employee = data;
+  }
 }

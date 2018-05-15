@@ -1,29 +1,4 @@
 <section class="list-employees mb-15">
   <h1>Employee List</h1>
-  <table class="table">
-    <thead>
-      <tr [style.background-color]="'#dadada'">
-        <th>Name</th>
-        <th>Employee Position</th>
-        <th>Employee Type</th>
-        <th>Email</th>
-        <th>Phone</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let employee of employees" (click)="onSelect(employee)" class="poiter">
-        <td class="emp-title">
-          <img src="{{ employee.avatar}}" alt="{{ employee.name }}" [imgCheck]="employee.avatar">
-          <div class="emp-title-name">
-            <h4>{{ employee.name }}</h4>
-            <p>Emp Code: {{ employee.employeeCode }}</p>
-          </div>
-        </td>
-        <td class="text-center" [style.color]="employee.position | checkPosition">{{ employee.position }}</td>
-        <td class="text-center" [style.color]="employee.employeeType | checkEmployeeType">{{ employee.employeeType }}</td>
-        <td class="text-center">{{ employee.employeeEmail }}</td>
-        <td class="text-center" [checkPhone]="employee.phone">{{ employee.phone }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <table-list [employees]="employees" (onGetData)="onGetData($event)" (onSelectElm)="onSelectElm($event)"></table-list>
 </section>

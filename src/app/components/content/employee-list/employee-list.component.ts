@@ -10,8 +10,8 @@ export class EmployeeListComponent implements OnInit {
 
   @Input() employees;
   @Input() isSelected;
-  @Output() onGetData = new EventEmitter<object>();
-  @Output() onSelectElm = new EventEmitter<boolean>();
+  @Output('onGetData') onSendata = new EventEmitter<object>();
+  @Output('onSelectElm') onSelectElement = new EventEmitter<boolean>();
 
   constructor() {
   }
@@ -19,8 +19,11 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(data) {
-    this.onGetData.emit(data);
-    this.onSelectElm.emit(true);
+  onSelectElm (data) {
+    this.onSelectElement.emit(data);
+  }
+
+  onGetData (employee) {
+    this.onSendata.emit(employee);
   }
 }

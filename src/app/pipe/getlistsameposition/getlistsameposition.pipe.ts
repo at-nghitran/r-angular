@@ -10,10 +10,8 @@ export class GetlistsamepositionPipe implements PipeTransform {
     if (!employees) {
       return [];
     } else {
-      let array = employees.filter(el => el.position === args);
-      let index = array.findIndex(el => el.position === args);
-      console.log(index);
-      
+      let array = employees.filter(el => el.position === args.position);
+      let index = array.findIndex(el => el.id === args.id);
       array.splice(index, 1);
       return array;
     }

@@ -2,8 +2,6 @@
   <h2>Post List</h2>
   <ul class="posts">
     <li *ngFor="let post of posts">
-      <!-- User Dierective -->
-      <!-- <img src="{{ post.img | checkImgUrl}}" alt="hinh anh"> -->
       <img src="{{ post.img }}" [imgCheck]="post.img" alt="hinh anh">
       <div class="post-info">
         <h4>{{post.name | uppercase }}</h4>
