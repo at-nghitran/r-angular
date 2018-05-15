@@ -10,8 +10,8 @@ import { Employee } from '../../../employee';
 export class EmployeeDetailComponent implements OnInit {
 
   @Input() employee: Employee;
+  @Input('employees') employees: Employee;
   @Input() isSelected: boolean;
-  @Input('employeeSamePosition') employeeSamePosition;
   @Output() onShow = new EventEmitter<boolean>();
 
   constructor() { }

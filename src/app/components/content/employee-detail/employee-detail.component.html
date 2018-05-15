@@ -1,4 +1,4 @@
-<div class="employee-wrapper mb-15" *ngIf="employee" [class.show]="isSelected" [class.hidden]="isSelected === false">
+<div class="employee-wrapper mb-15" *ngIf="employee">
   <h1>Employee Detail</h1>
   <article class="employee-detail">
     <div class="employee-avatar">
@@ -18,7 +18,7 @@
     </div>
   </article>
   
-  <ng-container *ngIf="employeeSamePosition.length > 0; else elseTemplate">
+  <ng-container *ngIf="(employees | getlistsameposition : employee.position).length > 0; else elseTemplate">
     <h1>List Employee same position</h1>
     <table class="table mb-15">
       <thead>
@@ -31,7 +31,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of employeeSamePosition">
+        <tr *ngFor="let employee of employees | getlistsameposition : employee.position">
           <td class="emp-title">
             <img src="{{ employee.avatar}}" alt="{{ employee.name }}" [imgCheck]="employee.avatar">
             <div class="emp-title-name">
