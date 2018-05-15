@@ -1,18 +1,18 @@
-import { Directive,  ElementRef, Input, OnInit } from '@angular/core';
+import { Directive,  ElementRef, Input, OnInit, AfterViewInit } from '@angular/core';
 
 @Directive({
-  selector: '[imgCheck]'
+  selector: '[appImgCheck]'
 })
 
-export class imgCheckDirective{
-  
+export class ImgCheckDirective implements AfterViewInit {
+
   constructor(private el: ElementRef) { }
 
-  @Input('imgCheck') imgCheckUrl: string;
+  @Input() appImgCheck: string;
 
   ngAfterViewInit() {
-    if(!this.imgCheckUrl) {
-      this.el.nativeElement.src = "../../assets/img/avatar.png";
+    if (!this.appImgCheck) {
+      this.el.nativeElement.src = '../../assets/img/avatar.png';
     }
   }
 }

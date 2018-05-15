@@ -1,17 +1,17 @@
 import { Component, OnInit, Input, Output, EventEmitter, AfterContentInit } from '@angular/core';
 
 @Component({
-  selector: 'employee-list',
+  selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
-  styleUrls: ['./employee-list.component.css']
+  styleUrls: ['./employee-list.component.scss']
 })
 
 export class EmployeeListComponent implements OnInit {
 
   @Input() employees;
   @Input() isSelected;
-  @Output('onGetData') onSendata = new EventEmitter<object>();
-  @Output('onSelectElm') onSelectElement = new EventEmitter<boolean>();
+  @Output() Sendata = new EventEmitter<object>();
+  @Output() SelectElement = new EventEmitter<boolean>();
 
   constructor() {
   }
@@ -20,10 +20,10 @@ export class EmployeeListComponent implements OnInit {
   }
 
   onSelectElm (data) {
-    this.onSelectElement.emit(data);
+    this.SelectElement.emit(data);
   }
 
   onGetData (employee) {
-    this.onSendata.emit(employee);
+    this.Sendata.emit(employee);
   }
 }

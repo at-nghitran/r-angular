@@ -2,9 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angu
 import { Employee } from '../../../employee';
 
 @Component({
-  selector: 'employee-detail',
+  selector: 'app-employee-detail',
   templateUrl: './employee-detail.component.html',
-  styleUrls: ['./employee-detail.component.css']
+  styleUrls: ['./employee-detail.component.scss']
 })
 
 export class EmployeeDetailComponent implements OnInit, OnDestroy {
@@ -12,7 +12,7 @@ export class EmployeeDetailComponent implements OnInit, OnDestroy {
   @Input() employee: Employee;
   @Input('employees') employees: Employee;
   @Input() isSelected: boolean;
-  @Output() onShow = new EventEmitter<boolean>();
+  @Output() showComponent = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -23,7 +23,7 @@ export class EmployeeDetailComponent implements OnInit, OnDestroy {
   }
 
   onClick() {
-    this.onShow.emit(false);
+    this.showComponent.emit(false);
   }
 
   onSelect(data) {

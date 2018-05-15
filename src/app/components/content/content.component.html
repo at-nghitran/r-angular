@@ -1,10 +1,10 @@
 <ng-container *ngIf="!isSelected; else elseTemplate">
   <main class="content">
-    <employee-list [employees]="employees" [isSelected]="isSelected" (onGetData)="onGetData($event)" (onSelectElm)="onSelectElm($event)"></employee-list>
+    <app-employee-list [employees]="employees" [isSelected]="isSelected" (Sendata)="onGetData($event)" (SelectElement)="onSelectElm($event)"></app-employee-list>
   </main>
 </ng-container>
 <ng-template #elseTemplate>
   <main class="content">
-    <employee-detail [employee]="selectedEmployee" [employees]="employees" [isSelected]="isSelected" (onShow)="onShow($event)"></employee-detail>
+    <app-employee-detail [employee]="selectedEmployee" [employees]="employees" [isSelected]="isSelected" (showComponent)="onShow($event)"></app-employee-detail>
   </main>
 </ng-template>

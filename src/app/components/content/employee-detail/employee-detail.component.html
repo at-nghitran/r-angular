@@ -2,20 +2,20 @@
   <h1>Employee Detail</h1>
   <article class="employee-detail">
     <div class="employee-avatar">
-      <img src="{{ employee.avatar }}" alt="{{ employee.name }}" [imgCheck]="employee.avatar" />
+      <img src="{{ employee.avatar }}" alt="{{ employee.name }}" [appImgCheck]="employee.avatar" />
     </div>
     <div class="employee-centent">
       <h2>{{ employee.name | uppercase}}</h2>
       <p>Employee Position : {{ employee.position }}</p>
       <p>Employee Type : {{ employee.employeeType }}</p>
       <p>Email : {{ employee.employeeEmail }}</p>
-      <label>Phone : </label> <span [checkPhone]="employee.phone"></span>
+      <label>Phone : </label> <span [appCheckPhone]="employee.phone"></span>
     </div>
   </article>
   
   <ng-container *ngIf="(employees | getlistsameposition : employee).length > 0; else elseTemplate">
     <h1>List Employee same position</h1>
-    <table-list [employees]="employees | getlistsameposition : employee" (onGetData)="onSelect($event)"></table-list>
+    <app-table-list [employees]="employees | getlistsameposition : employee" (GetData)="onSelect($event)"></app-table-list>
   </ng-container>
   <ng-template #elseTemplate>
     <p>No Employee same position</p>

@@ -8,7 +8,7 @@ export class CheckEmployeeTypePipe implements PipeTransform {
   transform(type: string) {
     if (type === 'Intern') {
       return 'yellow';
-    }else {
+    } else {
       return  '';
     }
   }

@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'checkPhonePipe'
+  name: 'pipe-checkphone'
 })
 
-export class checkPhonePipe {
+export class CheckPhonePipe implements PipeTransform {
   transform(phone: string, exponent: string): string {
     if (!phone) {
       return 'Empty';
