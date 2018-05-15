@@ -17,6 +17,7 @@ import { CheckEmployeeTypePipe } from './pipe/checkType/check-employee-type.pipe
 import { ChecPhoneDirective } from './directives/checkPhone/chec-phone.directive';
 import { TableListComponent } from './components/content/table-list/table-list/table-list.component';
 import { GetlistsamepositionPipe } from './pipe/getlistsameposition/getlistsameposition.pipe';
+import { ShowlistDirective } from './directives/showlist/showlist.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { GetlistsamepositionPipe } from './pipe/getlistsameposition/getlistsamep
     CheckEmployeeTypePipe,
     ChecPhoneDirective,
     TableListComponent,
-    GetlistsamepositionPipe
+    GetlistsamepositionPipe,
+    ShowlistDirective
   ],
   imports: [
     BrowserModule

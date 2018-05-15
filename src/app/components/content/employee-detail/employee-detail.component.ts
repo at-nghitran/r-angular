@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Employee } from '../../../employee';
 
 @Component({
@@ -7,7 +7,7 @@ import { Employee } from '../../../employee';
   styleUrls: ['./employee-detail.component.css']
 })
 
-export class EmployeeDetailComponent implements OnInit {
+export class EmployeeDetailComponent implements OnInit, OnDestroy {
 
   @Input() employee: Employee;
   @Input('employees') employees: Employee;
@@ -17,8 +17,9 @@ export class EmployeeDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('detail Init');
-    
+  }
+
+  ngOnDestroy(): void {
   }
 
   onClick() {
