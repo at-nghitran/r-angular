@@ -17,6 +17,8 @@ export class EmployeeDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('detail Init');
+    
   }
 
   onClick() {

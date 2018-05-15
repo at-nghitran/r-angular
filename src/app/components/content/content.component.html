@@ -1,9 +1,22 @@
-<main class="content">
+<!-- <main class="content"> -->
   <!-- <post-list [posts]="posts" [isSelected]="isSelected" (onGetData)="onGetData($event)" (onSelectElm)="onSelectElm($event)"></post-list>
   <post-detail [post]="selectedPost" [isSelected]="isSelected" (onShow)="onShow($event)"></post-detail> -->
  
-  <employee-list [employees]="employees" [isSelected]="isSelected" (onGetData)="onGetData($event)" (onSelectElm)="onSelectElm($event)"></employee-list>
-  <div *ngIf="isSelected">
+  <!-- <employee-list [employees]="employees" [isSelected]="isSelected" (onGetData)="onGetData($event)" (onSelectElm)="onSelectElm($event)"></employee-list>
+  <div >
     <employee-detail [employee]="selectedEmployee" [employees]="employees" [isSelected]="isSelected" (onShow)="onShow($event)"></employee-detail>
   </div>
-</main>
+  
+</main> -->
+
+<ng-container *ngIf="!isSelected; else elseTemplate">
+  <main class="content">
+    <employee-list [employees]="employees" [isSelected]="isSelected" (onGetData)="onGetData($event)" (onSelectElm)="onSelectElm($event)"></employee-list>
+  </main>
+</ng-container>
+<ng-template #elseTemplate>
+  <main class="content">
+    <employee-detail [employee]="selectedEmployee" [employees]="employees" [isSelected]="isSelected" (onShow)="onShow($event)"></employee-detail>
+    </main>
+</ng-template>
+
