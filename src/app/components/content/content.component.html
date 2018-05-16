@@ -1,6 +1,6 @@
 <ng-container *ngIf="!isSelected; else elseTemplate">
   <main class="content">
-    <app-employee-list [employees]="employees" [isSelected]="isSelected" (Sendata)="onGetData($event)" (SelectElement)="onSelectElm($event)"></app-employee-list>
+    <app-employee-list [isSelected]="isSelected" (Sendata)="onGetData($event)" (SelectElement)="onSelectElm($event)"></app-employee-list>
   </main>
 </ng-container>
 <ng-template #elseTemplate>
