@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy, AfterViewInit } from '@angular/core';
 import { Employee } from '../../../employee';
+import { GetListService } from '../../../services/getList/get-list.service';
+
 
 @Component({
   selector: 'app-employee-detail',
@@ -7,16 +9,22 @@ import { Employee } from '../../../employee';
   styleUrls: ['./employee-detail.component.scss']
 })
 
-export class EmployeeDetailComponent implements OnInit, OnDestroy {
+export class EmployeeDetailComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @Input() employee: Employee;
+  // @Input() employee: Employee;
+  employee: Employee;
+  @Input() selectedEmployeeId: string;
   @Input('employees') employees: Employee;
   @Input() isSelected: boolean;
   @Output() showComponent = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(private getlistService: GetListService) { }
 
   ngOnInit() {
+    this.employee = this.getlistService.getDetailMember(this.employees, this.selectedEmployeeId);
+  }
+
+  ngAfterViewInit() {
   }
 
   ngOnDestroy(): void {

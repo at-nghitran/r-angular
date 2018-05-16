@@ -10,26 +10,26 @@ import { EMPLOYEE } from '../../employees';
 
 export class ContentComponent {
   employees: any;
-  selectedEmployee: any;
+  selectedEmployeeId: string;
   isSelected: boolean;
 
   constructor() {
     this.isSelected = false;
     this.employees = EMPLOYEE;
-    this.selectedEmployee = {};
+    this.selectedEmployeeId  = '';
   }
 
-  onSelect(employee) {
-    this.selectedEmployee = employee;
-    this.isSelected = true;
-  }
+  // onSelect(employee) {
+  //   this.selectedEmployee = employee;
+  //   this.isSelected = true;
+  // }
 
   onShow(event) {
     this.isSelected = event;
   }
 
-  onGetData(data) {
-    this.selectedEmployee = data;
+  onGetData(id) {
+    this.selectedEmployeeId = id;
   }
 
   onSelectElm(event) {

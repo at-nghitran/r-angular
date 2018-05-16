@@ -15,34 +15,13 @@ export class GetListService {
   Emp: Employee;
   private employee: Observable<Employee[]>;
 
-  constructor(private http: HttpClient) {
-
-    this.getListMember().subscribe(data => {
-      console.log('service', data);
-    });
-
-    this.getDetailMember(1).subscribe(data => console.log('data', data));
-  }
-
+  constructor(private http: HttpClient) { }
 
   public getListMember(): Observable<any> {
     return this.http.get(this.urlList);
   }
 
-  public getDetailMember(idMember) {
-    // return this.http.get(this.urlList).pipe(
-    //   filter((el) => el.id === idMember)
-    // );
-    return this.http.get(this.urlList).pipe(
-      map((res: Response) => <any>res.json()), filter(stud => stud.id === idMember)
-    );
-  }
-
-  private log(message: string) {
-    console.log('HeroService: ' + message);
-  }
-
-  public getDetailOnArray(id, arr) {
-    arr.filter(el => el.id === id);
+  getDetailMember (dataList, idMem) {
+    return dataList.find(mem => mem['id'] === idMem);
   }
 }

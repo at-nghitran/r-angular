@@ -5,6 +5,6 @@
 </ng-container>
 <ng-template #elseTemplate>
   <main class="content">
-    <app-employee-detail [employee]="selectedEmployee" [employees]="employees" [isSelected]="isSelected" (showComponent)="onShow($event)"></app-employee-detail>
+    <app-employee-detail [selectedEmployeeId]="selectedEmployeeId" [employees]="employees" [isSelected]="isSelected" (showComponent)="onShow($event)"></app-employee-detail>
   </main>
 </ng-template>

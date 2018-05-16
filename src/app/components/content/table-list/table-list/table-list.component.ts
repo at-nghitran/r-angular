@@ -17,8 +17,8 @@ export class TableListComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(data) {
-    this.GetData.emit(data);
+  onSelect(id) {
+    this.GetData.emit(id);
     this.SelectElm.emit(true);
   }
 }
