@@ -11,7 +11,7 @@ import { GetListService } from '../../../services/getList/get-list.service';
 
 export class EmployeeDetailComponent implements OnInit {
 
-  // @Input() employee: Employee;
+  employeesSamePositions: any;
   employee: Employee;
   @Input() selectedEmployeeId: string;
   @Input() employees: Employee;
@@ -22,6 +22,7 @@ export class EmployeeDetailComponent implements OnInit {
 
   ngOnInit() {
     this.employee = this.getlistService.getDetailMember(this.employees, this.selectedEmployeeId);
+    this.employeesSamePositions = this.getlistService.getSameMember(this.employees, this.employee);
   }
 
   onClick() {

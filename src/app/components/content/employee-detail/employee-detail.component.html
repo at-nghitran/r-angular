@@ -13,9 +13,9 @@
     </div>
   </article>
   
-  <ng-container *ngIf="(employees | getlistsameposition : employee).length > 0; else elseTemplate">
+  <ng-container *ngIf="employeesSamePositions.length > 0; else elseTemplate">
     <h1>List Employee same position</h1>
-    <app-table-list [employees]="employees | getlistsameposition : employee" (GetData)="onSelect($event)"></app-table-list>
+    <app-table-list [employees]="employeesSamePositions" (GetData)="onSelect($event)"></app-table-list>
   </ng-container>
   <ng-template #elseTemplate>
     <p>No Employee same position</p>

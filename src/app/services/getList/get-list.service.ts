@@ -17,11 +17,18 @@ export class GetListService {
 
   constructor(private http: HttpClient) { }
 
-  public getListMember(): Observable<any> {
+  getListMember(): Observable<any> {
     return this.http.get(this.urlList);
   }
 
   getDetailMember (dataList, idMem) {
     return dataList.find(mem => mem['id'] === idMem);
+  }
+
+  getSameMember (employeeList, employee) {
+    let arrayMember = employeeList.filter(mem => mem['position'] === employee['position']);
+    const index = arrayMember.findIndex(el => el.id === employee.id);
+    arrayMember.splice(index, 1);
+    return arrayMember;
   }
 }
