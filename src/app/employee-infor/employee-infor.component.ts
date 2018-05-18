@@ -9,6 +9,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class EmployeeInforComponent implements OnInit {
 
   userForm: any;
+  emailRegex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
 
   constructor() {
     this.userForm = new FormGroup({
@@ -17,19 +18,11 @@ export class EmployeeInforComponent implements OnInit {
       code: new FormControl('', Validators.required),
       team: new FormControl('', Validators.required),
       skill: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required])
+      email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)])
     });
   }
 
   ngOnInit() {
-  }
-
-  emailDomainValidator(control: FormControl) {
-    if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
-      return null;
-    } else {
-        return { 'invalidEmailAddress': true };
-    }
   }
 
   saveUser() {

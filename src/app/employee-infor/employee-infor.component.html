@@ -19,10 +19,10 @@
         <input class="form-control" formControlName="team" type="text">
         <label>Skill: </label>
         <input class="form-control" formControlName="skill" type="text">
-        <!-- <label>Citizen: </label>
-        <label>Viet Nam <input type="radio" name="citizen" id="" value="VN"></label> 
+        <label>Citizen: </label>
+        <label>Viet Nam <input type="radio" name="citizen" id="" value="VN" checked></label> 
         <label>Japan <input type="radio" name="citizen" id="" value="JP"></label> 
-        <input class="form-control hidden" type="text" name="jpcertificate" required> -->
+        <input class="form-control hidden" type="text" name="jpcertificate" required placeholder="Nhap chung chi tieng nhat">
         <input class="btn btn-success" [disabled]="!userForm.valid" type="submit" value="Submit">
       </form>
     </div>
