@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { validateCode, validateCodeLength } from '../validators/code.validator';
 import { validateEmail } from '../validators/email.validator';
@@ -12,27 +12,23 @@ export class EmployeeInforComponent implements OnInit {
 
   userForm: FormGroup;
   isChecked: string;
-  team: FormControl;
+  team: FormGroup;
 
-  constructor() {
+  constructor(@Inject(FormBuilder) fb: FormBuilder) {
     this.isChecked = 'JP';
-  }
-
-  ngOnInit() {
-    this.userForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      birthday: new FormControl(''),
-      gender: new FormControl('', Validators.required),
-      code: new FormControl('', [Validators.required, Validators.maxLength(6), validateCodeLength, validateCode]),
-      team: new FormControl('', [Validators.required]),
-      skill: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, validateEmail]),
-      jpcertificate: new FormControl(''),
+    this.userForm = fb.group({
+      name: ['', Validators.required],
+      birthday: [],
+      gender: ['', Validators.required],
+      code: ['', [Validators.required, Validators.maxLength(6), validateCodeLength, validateCode]],
+      team: ['', Validators.required],
+      skill: ['', Validators.required],
+      email: ['', [Validators.required, validateEmail]],
+      jpcertificate: ['', this.isChecked === 'JP' ? null : Validators.required],
     });
   }
 
-  saveUser() {
-    console.log(this.userForm.value);
+  ngOnInit() {
   }
 
   onChange(event) {
@@ -47,4 +43,11 @@ export class EmployeeInforComponent implements OnInit {
     });
     this.team = arr;
   }
+
+  get username() { return this.userForm.get('name'); }
+  get gender() { return this.userForm.get('gender'); }
+  get email() { return this.userForm.get('email'); }
+  get userteam() { return this.userForm.get('team'); }
+  get skill() { return this.userForm.get('skill'); }
+  get code() { return this.userForm.get('code'); }
 }

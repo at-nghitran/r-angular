@@ -32,11 +32,11 @@
   margin: 0 auto;
 }
 
-.ng-valid {
+.success {
   border: solid 1px green;
 }
 
-.ng-invalid {
+.danger {
   border: solid 1px red;
 }
 
