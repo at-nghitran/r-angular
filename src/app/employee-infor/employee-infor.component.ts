@@ -1,4 +1,4 @@
-import { Component, OnInit,  OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { validateCode, validateCodeLength } from '../validators/code.validator';
 import { validateEmail } from '../validators/email.validator';
@@ -8,7 +8,7 @@ import { validateEmail } from '../validators/email.validator';
   templateUrl: './employee-infor.component.html',
   styleUrls: ['./employee-infor.component.css']
 })
-export class EmployeeInforComponent implements OnInit, OnChanges {
+export class EmployeeInforComponent implements OnInit {
 
   userForm: FormGroup;
   isChecked: string;

@@ -1,7 +1,7 @@
 import { FormControl } from '@angular/forms';
 
 export function validateCode(control: FormControl) {
-  const codeDefault = new RegExp ('^(AT)([0-9][0-9][0-9][0-9])$');
+  const codeDefault = new RegExp ('(AT)([0-9]{4})');
   if (codeDefault.test(control.value)) {
     return null;
   } else {
