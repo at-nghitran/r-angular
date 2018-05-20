@@ -1,6 +1,5 @@
 .form-control {
   display: block;
-  width: 100%;
   padding: .375rem .75rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -18,9 +17,6 @@
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   border: 1px solid transparent;
   padding: .375rem .75rem;
@@ -32,7 +28,7 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -47,5 +43,9 @@
 .submit {
   display: block;
   margin-top: 20px;
+}
+
+.pd-15 {
+  padding: 15px;
 }
 

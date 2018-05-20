@@ -1,42 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  OnChanges } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { validateCode, validateCodeLength } from '../validators/code.validator';
+import { validateEmail } from '../validators/email.validator';
 
 @Component({
   selector: 'app-employee-infor',
   templateUrl: './employee-infor.component.html',
   styleUrls: ['./employee-infor.component.css']
 })
-export class EmployeeInforComponent implements OnInit {
+export class EmployeeInforComponent implements OnInit, OnChanges {
 
-  userForm: any;
+  userForm: FormGroup;
   isChecked: string;
-  team: any;
-  emailRegex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+  team: FormControl;
 
   constructor() {
     this.isChecked = 'JP';
-    this.userForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      gender: new FormControl('', Validators.required),
-      code: new FormControl('', [Validators.required, Validators.maxLength(6), Validators.pattern('^(AT)([0-9][0-9][0-9][0-9])$')]),
-      team: new FormControl('', [Validators.required]),
-      skill: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.pattern(this.emailRegex)])
-    });
   }
 
   ngOnInit() {
+    this.userForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      birthday: new FormControl(''),
+      gender: new FormControl('', Validators.required),
+      code: new FormControl('', [Validators.required, Validators.maxLength(6), validateCodeLength, validateCode]),
+      team: new FormControl('', [Validators.required]),
+      skill: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, validateEmail]),
+      jpcertificate: new FormControl(''),
+    });
   }
 
   saveUser() {
-    console.log(this.userForm.controls.gender.value);
+    console.log(this.userForm.value);
   }
 
   onChange(event) {
     this.isChecked = event.target.defaultValue;
-  }
-
-  validateCode(code) {
   }
 
   getTeamValue(value) {
@@ -46,14 +46,5 @@ export class EmployeeInforComponent implements OnInit {
       arr.push(element.trim());
     });
     this.team = arr;
-    console.log('team:', this.team);
-  }
-
-  validationTeam(team) {
-    if (team.isArray()) {
-      return true;
-    } else {
-      return false;
-    }
   }
 }
