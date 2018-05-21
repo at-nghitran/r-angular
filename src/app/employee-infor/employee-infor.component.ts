@@ -35,10 +35,10 @@ export class EmployeeInforComponent implements OnInit {
     this.isChecked = (event.srcElement && event.srcElement.value === '0');
     if ( this.isChecked ) {
       this.userForm.controls['jpcertificate'].setValidators([Validators.required]);
-      this.userForm.controls['jpcertificate'].updateValueAndValidity()
+      this.userForm.controls['jpcertificate'].updateValueAndValidity();
     } else {
-      this.userForm.controls['jpcertificate'].clearValidators()
-      this.userForm.controls['jpcertificate'].updateValueAndValidity()
+      this.userForm.controls['jpcertificate'].clearValidators();
+      this.userForm.controls['jpcertificate'].updateValueAndValidity();
     }
   }
 
