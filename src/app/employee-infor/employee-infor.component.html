@@ -1,7 +1,6 @@
 <div class="container pd-15">
   <form [formGroup]="userForm" (submit)="saveUser()">
     <h2>Personal Infor</h2>
-
     <label>Name: </label>
     <input class="form-control" 
           [ngClass]="{'danger': username.invalid, 'success': username.valid}" 
@@ -22,31 +21,43 @@
     <label>Email: </label>
     <input class="form-control" 
           [ngClass]="{'danger': email.invalid, 'success': email.valid}"
-          formControlName="email" type="email">
-    <label>Code: </label>
+          formControlName="email" 
+          type="email">
 
+    <label>Code: </label>
     <input class="form-control" 
           [ngClass]="{'danger': code.invalid, 'success': code.valid}"
-          formControlName="code" type="text" maxLength="6">
+          formControlName="code" 
+          type="text"
+          maxlength="6">
 
     <label>Team: </label>
     <input class="form-control" 
           [ngClass]="{'danger': userteam.invalid, 'success': userteam.valid}"
-          formControlName="team" type="text" (keyup)="getTeamValue($event)">
+          formControlName="team" type="text" 
+          (keyup)="getTeamValue($event)">
+
     <label>Skill: </label>
     <input class="form-control" 
           [ngClass]="{'danger': skill.invalid, 'success': skill.valid}"
-          formControlName="skill" type="text">
+          formControlName="skill" 
+          type="text">
           
     <label>Citizen: </label>
     <label>Viet Nam
-      <input name="citizen" type="radio" value="VN" (change)="onChange($event)">
+      <input name="citizen" type="radio" value='0' (change)="onChange($event)" checked>
     </label>
     <label>Japan
-      <input name="citizen" type="radio" value="JP" (change)="onChange($event)" checked>
+      <input name="citizen" type="radio" value='1' (change)="onChange($event)">
     </label>
-    <input *ngIf="isChecked==='VN'" class="form-control" name="jpcertificate" type="text" formControlName="jpcertificate" placeholder="Nhap chung chi tieng nhat">
-
-    <input class="btn btn-success submit" type="submit" value="Submit" [disabled]="!userForm.valid">
+    <input *ngIf="isChecked" 
+            class="form-control" 
+            name="jpcertificate" 
+            type="text"
+            formControlName="jpcertificate" 
+            placeholder="Yêu cầu chứng chỉ tiếng nhật"
+            [required]="isChecked"
+            >
+    <input class="btn btn-success submit" type="submit" value="Submit" [disabled]="!userForm.valid && isChecked">
   </form>
 </div>

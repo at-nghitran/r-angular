@@ -11,11 +11,11 @@ import { validateEmail } from '../validators/email.validator';
 export class EmployeeInforComponent implements OnInit {
 
   userForm: FormGroup;
-  isChecked: string;
+  isChecked: boolean;
   team: FormGroup;
 
   constructor(@Inject(FormBuilder) fb: FormBuilder) {
-    this.isChecked = 'VN';
+    this.isChecked = true;
     this.userForm = fb.group({
       name: ['', Validators.required],
       birthday: [],
@@ -23,8 +23,8 @@ export class EmployeeInforComponent implements OnInit {
       code: ['', [Validators.required, Validators.maxLength(6), validateCodeLength, validateCode]],
       team: ['', Validators.required],
       skill: ['', Validators.required],
-      email: ['', [Validators.required, validateEmail]],
-      jpcertificate: ['', this.isChecked === 'JP' ? null : Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      jpcertificate: ''
     });
   }
 
@@ -32,12 +32,14 @@ export class EmployeeInforComponent implements OnInit {
   }
 
   onChange(event) {
-    this.isChecked = event.target.defaultValue;
+    this.isChecked = (event.srcElement && event.srcElement.value === '0');
+    console.log(this.isChecked);
   }
 
   saveUser () { }
 
   getTeamValue(value) {
+    console.log(value.value);
   }
 
   get username() { return this.userForm.get('name'); }
@@ -46,4 +48,5 @@ export class EmployeeInforComponent implements OnInit {
   get userteam() { return this.userForm.get('team'); }
   get skill() { return this.userForm.get('skill'); }
   get code() { return this.userForm.get('code'); }
+  get jpcertificate() { return this.userForm.get('jpcertificate'); }
 }
