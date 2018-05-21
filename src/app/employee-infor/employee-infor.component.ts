@@ -15,7 +15,7 @@ export class EmployeeInforComponent implements OnInit {
   team: FormGroup;
 
   constructor(@Inject(FormBuilder) fb: FormBuilder) {
-    this.isChecked = 'JP';
+    this.isChecked = 'VN';
     this.userForm = fb.group({
       name: ['', Validators.required],
       birthday: [],
@@ -38,12 +38,6 @@ export class EmployeeInforComponent implements OnInit {
   saveUser () { }
 
   getTeamValue(value) {
-    this.team = value.target.value.split(',');
-    const arr = [];
-    this.team.forEach(element => {
-      arr.push(element.trim());
-    });
-    this.team = arr;
   }
 
   get username() { return this.userForm.get('name'); }
