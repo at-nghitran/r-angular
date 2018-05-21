@@ -33,7 +33,6 @@ export class EmployeeInforComponent implements OnInit {
 
   onChange(event) {
     this.isChecked = (event.srcElement && event.srcElement.value === '0');
-    console.log(this.isChecked);
   }
 
   saveUser () { }
