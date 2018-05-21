@@ -35,6 +35,8 @@ export class EmployeeInforComponent implements OnInit {
     this.isChecked = event.target.defaultValue;
   }
 
+  saveUser () { }
+
   getTeamValue(value) {
     this.team = value.target.value.split(',');
     const arr = [];
