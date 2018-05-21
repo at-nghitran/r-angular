@@ -14,9 +14,12 @@ export class EmployeeInforComponent implements OnInit {
   isChecked: boolean;
   team: FormGroup;
 
-  constructor(@Inject(FormBuilder) fb: FormBuilder) {
+  constructor(private fb: FormBuilder) {
+  }
+
+  ngOnInit() {
     this.isChecked = true;
-    this.userForm = fb.group({
+    this.userForm = this.fb.group({
       name: ['', Validators.required],
       birthday: [],
       gender: ['', Validators.required],
@@ -24,22 +27,24 @@ export class EmployeeInforComponent implements OnInit {
       team: ['', Validators.required],
       skill: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      jpcertificate: ''
+      jpcertificate: ['', [Validators.required]]
     });
-  }
-
-  ngOnInit() {
   }
 
   onChange(event) {
     this.isChecked = (event.srcElement && event.srcElement.value === '0');
+    if ( this.isChecked ) {
+      this.userForm.controls['jpcertificate'].setValidators([Validators.required]);
+      this.userForm.controls['jpcertificate'].updateValueAndValidity()
+    } else {
+      this.userForm.controls['jpcertificate'].clearValidators()
+      this.userForm.controls['jpcertificate'].updateValueAndValidity()
+    }
   }
 
   saveUser () { }
 
-  getTeamValue(value) {
-    console.log(value.value);
-  }
+  getTeamValue(value) { }
 
   get username() { return this.userForm.get('name'); }
   get gender() { return this.userForm.get('gender'); }
