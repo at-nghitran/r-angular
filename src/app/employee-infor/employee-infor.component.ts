@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { validateCode, validateCodeLength } from '../validators/code.validator';
 import { validateEmail } from '../validators/email.validator';
 
@@ -13,6 +13,7 @@ export class EmployeeInforComponent implements OnInit {
   userForm: FormGroup;
   isChecked: boolean;
   team: FormGroup;
+  skills: any[] = [];
 
   constructor(private fb: FormBuilder) {
   }
@@ -25,7 +26,7 @@ export class EmployeeInforComponent implements OnInit {
       gender: ['', Validators.required],
       code: ['', [Validators.required, Validators.maxLength(6), validateCodeLength, validateCode]],
       team: ['', Validators.required],
-      skill: ['', Validators.required],
+      skills: this.fb.array([this.initItem()]),
       email: ['', [Validators.required, Validators.email]],
       jpcertificate: ['', [Validators.required]]
     });
@@ -33,24 +34,36 @@ export class EmployeeInforComponent implements OnInit {
 
   onChange(event) {
     this.isChecked = (event.srcElement && event.srcElement.value === '0');
-    if ( this.isChecked ) {
+    if (this.isChecked) {
       this.userForm.controls['jpcertificate'].setValidators([Validators.required]);
       this.userForm.controls['jpcertificate'].updateValueAndValidity();
     } else {
       this.userForm.controls['jpcertificate'].clearValidators();
       this.userForm.controls['jpcertificate'].updateValueAndValidity();
     }
+    console.log(this.userForm);
   }
 
-  saveUser () { }
+  saveUser() {
+    console.log(this.userForm.value);
+  }
+
+  initItem() {
+    return this.fb.group({
+      skill: ['', Validators.required]
+    });
+  }
+
+  addItem () {
+    const control  = this.userForm.controls['skills'] as FormArray;
+    control.push(this.initItem());
+    console.log('aaa');
+  }
+
+  removeItem (index: number) {
+    const control  = this.userForm.get('skills') as FormArray;
+    control.removeAt(index);
+  }
 
   getTeamValue(value) { }
-
-  get username() { return this.userForm.get('name'); }
-  get gender() { return this.userForm.get('gender'); }
-  get email() { return this.userForm.get('email'); }
-  get userteam() { return this.userForm.get('team'); }
-  get skill() { return this.userForm.get('skill'); }
-  get code() { return this.userForm.get('code'); }
-  get jpcertificate() { return this.userForm.get('jpcertificate'); }
 }

@@ -5,13 +5,13 @@
       <div class="personal-info pd-15">
         <h2 class="posonal-title">Personal Infor</h2>
         <label>Name: </label>
-        <input class="form-control" [ngClass]="{'danger': username.invalid, 'success': username.valid}" formControlName="name" type="text">
+        <input class="form-control" [ngClass]="{'danger': userForm.controls.name.invalid, 'success': userForm.controls.name.valid}" formControlName="name" type="text">
 
         <label>Birthday: </label>
         <input class="form-control" formControlName="birthday" type="date">
 
         <label>Gender:</label>
-        <select class="form-control text-center" [ngClass]="{'danger': gender.invalid, 'success': gender.valid}" formControlName="gender">
+        <select class="form-control text-center" [ngClass]="{'danger': userForm.controls.gender.invalid, 'success': userForm.controls.gender.valid}" formControlName="gender">
           <option value="1">Male</option>
           <option value="0">Female</option>
         </select>
@@ -20,18 +20,24 @@
       <div class="company-info pd-15">
         <h2 class="posonal-title">Company Info</h2>
         <label>Email: </label>
-        <input class="form-control" [ngClass]="{'danger': email.invalid, 'success': email.valid}" formControlName="email" type="email">
+        <input class="form-control" [ngClass]="{'danger': userForm.controls.email.invalid, 'success': userForm.controls.email.valid}" formControlName="email" type="email">
 
         <label>Code: </label>
-        <input class="form-control" [ngClass]="{'danger': code.invalid, 'success': code.valid}" formControlName="code" type="text"
+        <input class="form-control" [ngClass]="{'danger': userForm.controls.code.invalid, 'success': userForm.controls.code.valid}" formControlName="code" type="text"
           maxlength="6">
 
         <label>Team: </label>
-        <input class="form-control" [ngClass]="{'danger': userteam.invalid, 'success': userteam.valid}" formControlName="team" type="text"
+        <input class="form-control" [ngClass]="{'danger': userForm.controls.team.invalid, 'success': userForm.controls.team.valid}" formControlName="team" type="text"
           (keyup)="getTeamValue($event)">
 
-        <label>Skill: </label>
-        <input class="form-control" [ngClass]="{'danger': skill.invalid, 'success': skill.valid}" formControlName="skill" type="text">
+        <div formArrayName="skills">
+          <div *ngFor="let skill of userForm.controls.skills.controls; let i=index" [formGroupName]="i">
+            <label>Skill: </label>
+            <input class="form-control" [ngClass]="{'danger': userForm.controls.skills.invalid, 'success': userForm.controls.skills.valid}" formControlName="skill" type="text">
+            <button *ngIf="userForm.controls.skills.controls.length > 1" (click)="removeItem(i)" class="btn btn-danger mb-15">Delete Skill</button>
+          </div>
+        </div>
+        <button type="button" (click)="addItem()" class="btn btn-info mb-15">Add new Skill</button>
 
         <label class="company-info-citizen">Citizen: </label>
         <label class="company-info-citizen-country">Viet Nam
@@ -40,11 +46,11 @@
         <label class="company-info-citizen-country">Japan
           <input name="citizen" type="radio" value='1' (change)="onChange($event)">
         </label>
-        <input *ngIf="isChecked" class="form-control" name="jpcertificate" type="text" formControlName="jpcertificate" placeholder="Yêu cầu chứng chỉ tiếng nhật">
+        <input *ngIf="isChecked" [ngClass]="{'danger': userForm.controls.jpcertificate.invalid, 'success': userForm.controls.jpcertificate.valid}" class="form-control" name="jpcertificate" type="text" formControlName="jpcertificate" placeholder="Yêu cầu chứng chỉ tiếng nhật">
       </div>
       <div class="clear-fix"></div>
       <div class="submit">
-        <input class="btn btn-success" type="submit" value="Submit" [disabled]="!userForm.valid">
+        <input class="btn" [ngClass]="{'btn-success': userForm.valid}"  type="submit" value="Submit" [disabled]="!userForm.valid">
       </div>
     </form>
   </div>

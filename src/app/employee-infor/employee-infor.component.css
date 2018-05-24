@@ -107,3 +107,17 @@
 .clear-fix {
   clear: both;
 }
+
+.btn-success {
+  background: green;
+  color:white;
+}
+
+.btn-info {
+  background: blue;
+}
+
+.btn-danger {
+  background: firebrick;
+  color: white;
+}
