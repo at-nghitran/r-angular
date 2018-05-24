@@ -48,6 +48,7 @@
         </label>
         <input *ngIf="isChecked" [ngClass]="{'danger': userForm.controls.jpcertificate.invalid, 'success': userForm.controls.jpcertificate.valid}" class="form-control" name="jpcertificate" type="text" formControlName="jpcertificate" placeholder="Yêu cầu chứng chỉ tiếng nhật">
       </div>
+      
       <div class="clear-fix"></div>
       <div class="submit">
         <input class="btn" [ngClass]="{'btn-success': userForm.valid}"  type="submit" value="Submit" [disabled]="!userForm.valid">
