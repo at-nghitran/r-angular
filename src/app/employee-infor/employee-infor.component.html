@@ -20,20 +20,32 @@
       <div class="company-info pd-15">
         <h2 class="posonal-title">Company Info</h2>
         <label>Email: </label>
-        <input class="form-control" [ngClass]="{'danger': userForm.controls.email.invalid, 'success': userForm.controls.email.valid}" formControlName="email" type="email">
+        <input class="form-control" 
+              [ngClass]="{'danger': userForm.controls.email.invalid, 'success': userForm.controls.email.valid}" 
+              formControlName="email" 
+              type="email">
 
         <label>Code: </label>
-        <input class="form-control" [ngClass]="{'danger': userForm.controls.code.invalid, 'success': userForm.controls.code.valid}" formControlName="code" type="text"
+        <input class="form-control" 
+          [ngClass]="{'danger': userForm.controls.code.invalid, 'success': userForm.controls.code.valid}" 
+          formControlName="code" 
+          type="text"
           maxlength="6">
 
         <label>Team: </label>
-        <input class="form-control" [ngClass]="{'danger': userForm.controls.team.invalid, 'success': userForm.controls.team.valid}" formControlName="team" type="text"
-          (keyup)="getTeamValue($event)">
+        <input class="form-control" 
+              [ngClass]="{'danger': userForm.controls.team.invalid, 'success': userForm.controls.team.valid}" 
+              formControlName="team" 
+              type="text"
+              (keyup)="getTeamValue($event)">
 
         <div formArrayName="skills">
           <div *ngFor="let skill of userForm.controls.skills.controls; let i=index" [formGroupName]="i">
             <label>Skill: </label>
-            <input class="form-control" [ngClass]="{'danger': userForm.controls.skills.invalid, 'success': userForm.controls.skills.valid}" formControlName="skill" type="text">
+            <input class="form-control" 
+                  [ngClass]="{'danger': userForm.controls.skills.invalid, 'success': userForm.controls.skills.valid}" 
+                  formControlName="skill" 
+                  type="text">
             <button *ngIf="userForm.controls.skills.controls.length > 1" (click)="removeItem(i)" class="btn btn-danger mb-15">Delete Skill</button>
           </div>
         </div>
@@ -46,12 +58,22 @@
         <label class="company-info-citizen-country">Japan
           <input name="citizen" type="radio" value='1' (change)="onChange($event)">
         </label>
-        <input *ngIf="isChecked" [ngClass]="{'danger': userForm.controls.jpcertificate.invalid, 'success': userForm.controls.jpcertificate.valid}" class="form-control" name="jpcertificate" type="text" formControlName="jpcertificate" placeholder="Yêu cầu chứng chỉ tiếng nhật">
+        <input *ngIf="isChecked" 
+              [ngClass]="{'danger': userForm.controls.jpcertificate.invalid, 'success': userForm.controls.jpcertificate.valid}" 
+              class="form-control" 
+              name="jpcertificate" 
+              type="text" 
+              formControlName="jpcertificate" 
+              placeholder="Yêu cầu chứng chỉ tiếng nhật">
       </div>
-      
+
       <div class="clear-fix"></div>
       <div class="submit">
-        <input class="btn" [ngClass]="{'btn-success': userForm.valid}"  type="submit" value="Submit" [disabled]="!userForm.valid">
+        <input class="btn" 
+              [ngClass]="{'btn-success': userForm.valid}"  
+              type="submit" 
+              value="Submit" 
+              [disabled]="!userForm.valid">
       </div>
     </form>
   </div>
