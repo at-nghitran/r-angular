@@ -41,7 +41,6 @@ export class EmployeeInforComponent implements OnInit {
       this.userForm.controls['jpcertificate'].clearValidators();
       this.userForm.controls['jpcertificate'].updateValueAndValidity();
     }
-    console.log(this.userForm);
   }
 
   saveUser() {
