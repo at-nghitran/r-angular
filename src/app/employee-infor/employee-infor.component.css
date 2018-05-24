@@ -1,0 +1,123 @@
+.form-control {
+  display: block;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.success {
+  border: solid 1px green;
+}
+
+.danger {
+  border: solid 1px red;
+}
+
+.submit {
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+  border-top: solid 1px #C9C9C9;
+  padding: 10px;
+}
+
+.pd-15 {
+  padding: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.user-wraper {
+  margin: 0 auto;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.emp-title {
+  text-align: center;
+  color: brown;
+}
+
+.form-employee {
+  padding: 15px;
+  border: solid 1px #C9C9C9;
+  border-radius: 6px;
+}
+
+.personal-info {
+  width: 45%;
+  float: left;
+}
+
+.company-info {
+  width: 45%;
+  float: left;
+  border-left: solid 1px #C9C9C9;
+}
+
+.company-info-citizen {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.company-info-citizen-country {
+  width: 40%;
+  display: inline-block;
+}
+
+.posonal-title {
+  color: teal;
+  text-align: center;
+  border-bottom: solid 1px #C9C9C9;
+  padding-bottom: 15px;
+}
+
+.clear-fix {
+  clear: both;
+}
+
+.btn-success {
+  background: green;
+  color:white;
+}
+
+.btn-info {
+  background: blue;
+}
+
+.btn-danger {
+  background: firebrick;
+  color: white;
+}
