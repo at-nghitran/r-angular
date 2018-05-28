@@ -56,7 +56,6 @@ export class EmployeeInforComponent implements OnInit {
   addItem () {
     const control  = this.userForm.controls['skills'] as FormArray;
     control.push(this.initItem());
-    console.log('aaa');
   }
 
   removeItem (index: number) {

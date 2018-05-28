@@ -4,13 +4,14 @@
     <form class="form-employee" [formGroup]="userForm" (submit)="saveUser()">
       <div class="personal-info pd-15">
         <h2 class="posonal-title">Personal Infor</h2>
-        <label>Name: </label>
+        <label>Name: (*)</label>
         <input class="form-control" [ngClass]="{'danger': userForm.controls.name.invalid, 'success': userForm.controls.name.valid}" formControlName="name" type="text">
+        <span *ngIf="userForm.controls.name.invalid">Please type your name</span> <br>
 
         <label>Birthday: </label>
         <input class="form-control" formControlName="birthday" type="date">
 
-        <label>Gender:</label>
+        <label>Gender: (*)</label>
         <select class="form-control text-center" [ngClass]="{'danger': userForm.controls.gender.invalid, 'success': userForm.controls.gender.valid}" formControlName="gender">
           <option value="1">Male</option>
           <option value="0">Female</option>
@@ -19,20 +20,22 @@
 
       <div class="company-info pd-15">
         <h2 class="posonal-title">Company Info</h2>
-        <label>Email: </label>
+        <label>Email: (*)</label>
         <input class="form-control" 
               [ngClass]="{'danger': userForm.controls.email.invalid, 'success': userForm.controls.email.valid}" 
               formControlName="email" 
+              placeholder="example@gmail.com"
               type="email">
 
-        <label>Code: </label>
+        <label>Code: (*)</label>
         <input class="form-control" 
           [ngClass]="{'danger': userForm.controls.code.invalid, 'success': userForm.controls.code.valid}" 
           formControlName="code" 
+          placeholder="AT4444"
           type="text"
           maxlength="6">
 
-        <label>Team: </label>
+        <label>Team: (*)</label>
         <input class="form-control" 
               [ngClass]="{'danger': userForm.controls.team.invalid, 'success': userForm.controls.team.valid}" 
               formControlName="team" 
@@ -41,7 +44,7 @@
 
         <div formArrayName="skills">
           <div *ngFor="let skill of userForm.controls.skills.controls; let i=index" [formGroupName]="i">
-            <label>Skill: </label>
+            <label>Skill: (*)</label>
             <input class="form-control" 
                   [ngClass]="{'danger': userForm.controls.skills.invalid, 'success': userForm.controls.skills.valid}" 
                   formControlName="skill" 
