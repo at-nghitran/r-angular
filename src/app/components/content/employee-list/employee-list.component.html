@@ -1,0 +1,4 @@
+<section class="list-employees mb-15">
+  <h1>Employee List</h1>
+  <app-table-list [employees]="employees" (GetData)="onGetData($event)" (SelectElm)="onSelectElm($event)"></app-table-list>
+</section>

@@ -1,0 +1,26 @@
+<table class="table mb-15">
+  <thead>
+    <tr [style.background-color]="'#dadada'">
+      <th>Name</th>
+      <th>Employee Position</th>
+      <th>Employee Type</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees" (click)="onSelect(employee)" class="pointer">
+      <td class="emp-title">
+        <img src="{{ employee.avatar }}" alt="{{ employee.name }}" [appImgCheck]="employee.avatar">
+        <div class="emp-title-name">
+          <h4>{{ employee.name }}</h4>
+          <p>Emp Code: {{ employee.employeeCode }}</p>
+        </div>
+      </td>
+      <td class="text-center" [style.color]="employee.position | checkPosition">{{ employee.position }}</td>
+      <td class="text-center" [style.color]="employee.employeeType | checkEmployeeType">{{ employee.employeeType }}</td>
+      <td class="text-center">{{ employee.employeeEmail }}</td>
+      <td class="text-center" [appCheckPhone]="employee.phone">{{ employee.phone }}</td>
+    </tr>
+  </tbody>
+</table>

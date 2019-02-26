@@ -1,11 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { Component } from './components/index';
+import { Directives } from './directives/index';
+import { Pipes } from './pipe/index';
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    [...Component],
+    [...Directives],
+    [...Pipes],
+    AppComponent,
   ],
   imports: [
     BrowserModule
@@ -13,4 +19,5 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
